@@ -1,10 +1,58 @@
-<mxfile host="app.diagrams.net" modified="2024-03-20T16:54:34.060Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0" version="23.0.1" etag="7pi8kdiVdmme-i00jf1g" type="github">
-  <diagram name="Page-1" id="rNqPR95As345_wgbe2A0">
-    <mxGraphModel>
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-      </root>
-    </mxGraphModel>
-  </diagram>
+<mxfile host="65bd71144e">
+    <diagram name="Page-1" id="rNqPR95As345_wgbe2A0">
+        <mxGraphModel dx="1216" dy="636" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="40" width="360" height="510" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="40" width="190" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Weather for&amp;nbsp;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="125" y="45" width="170" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="London" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="40" width="180" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="C/F&amp;nbsp; button&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="380" y="110" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Temperature&amp;nbsp;&lt;br&gt;Type of weather&amp;nbsp;&lt;br&gt;Daily max and min" style="rounded=0;whiteSpace=wrap;html=1;align=left;direction=west;" vertex="1" parent="1">
+                    <mxGeometry x="170" y="160" width="180" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Current time forecast&lt;br&gt;Current temp&lt;br&gt;weather type&lt;br&gt;% chance of rain" style="rounded=0;whiteSpace=wrap;html=1;align=left;direction=west;" vertex="1" parent="1">
+                    <mxGeometry x="170" y="240" width="80" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="current time + 1hr forecast&lt;br&gt;Current temp&lt;br&gt;weather type&lt;br&gt;% chance of rain" style="rounded=0;whiteSpace=wrap;html=1;align=left;direction=west;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="240" width="80" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="current time +2 hrs forecast&lt;br&gt;Current temp&lt;br&gt;weather type&lt;br&gt;% chance of rain" style="rounded=0;whiteSpace=wrap;html=1;align=left;direction=west;" vertex="1" parent="1">
+                    <mxGeometry x="330" y="240" width="80" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="170" y="390" width="240" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="Details of Day&lt;br&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=4" vertex="1" parent="1">
+                    <mxGeometry x="180" y="400" width="160" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="sunrise time" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="180" y="450" width="145" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="Wind speed avg" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="180" y="420" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="sunset time" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="180" y="480" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="Last updated time.&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="130" y="110" width="107.5" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="Update button" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="255" y="110" width="90" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
 </mxfile>
