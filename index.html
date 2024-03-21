@@ -1,14 +1,47 @@
 <!DOCTYPE html>
-<html lang="eng">
-<head>
+<html lang="en">
+  <head>
     <title>Weather App</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
-    <h1>Welcome to the Weather App!</h1>
-    
-    <!-- Your content goes here -->
-    
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <section id="headerSection">
+      <p>Weather for :</p>
+      <p id="placeName">To be changed</p>
+    </section>
+    <section id="buttonSection">
+      <p>Last updated</p>
+      <p id="actualTime">Time</p>
+      <button type="button" id="updateButton">Update button</button>
+      <button type="button" id="degreeConversion">change C/F</button>
+    </section>
+    <h2>Hourly Forecast</h2>
+    <section id="hourlySection">
+      <div id="currentHourly">
+        <p id="hourNow">Actual time</p>
+        <p id="hourTemp">Actual temp</p>
+        <p id="hourType">Sunny</p>
+        <p id="hourRain">chance %</p>
+      </div>
+      <div id="plusOneHourly">
+        <p id="plusOneNow">Actual time</p>
+        <p id="plusOneTemp">Actual temp</p>
+        <p id="plusOneType">Sunny</p>
+        <p id="plusOneRain">chance %</p>
+      </div>
+      <div id="plusTwoHourly">
+        <p id="plusTwoNow">Actual time</p>
+        <p id="plusTwoTemp">Actual temp</p>
+        <p id="plusTwoType">Sunny</p>
+        <p id="plusTwoRain">chance %</p>
+      </div>
+    </section>
+    <div id="detailsSection">
+      <p>Details of the Day</p>
+      <p id="windSpeed">Very fast</p>
+      <p id="sunrise">early morning</p>
+      <p id="sunset">late afternoon</p>
+    </div>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

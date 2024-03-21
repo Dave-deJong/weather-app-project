@@ -1,0 +1,38 @@
+body {
+  background-color: rgb(91, 91, 243);
+  height: 100vmax;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+}
+
+#headerSection {
+  color: beige;
+  font-size: 3em;
+}
+#buttonSection {
+  font-size: 2em;
+  color: rgb(163, 156, 156);
+}
+
+#updateButton {
+  background-color: chartreuse;
+  font-size: 1em;
+  border-radius: 100%;
+}
+#degreeConversion {
+  background-color: aqua;
+  font-size: 1em;
+  border-radius: 75%;
+}
+
+#hourlySection {
+  font-size: 2em;
+}
+
+#hourlySection div {
+  border: 3px solid black;
+  padding: 20px;
+}

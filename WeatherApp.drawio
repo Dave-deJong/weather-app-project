@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram name="Page-1" id="rNqPR95As345_wgbe2A0">
-        <mxGraphModel dx="1216" dy="636" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="605" dy="642" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -23,13 +23,13 @@
                     <mxGeometry x="170" y="160" width="180" height="70" as="geometry"/>
                 </mxCell>
                 <mxCell id="10" value="Current time forecast&lt;br&gt;Current temp&lt;br&gt;weather type&lt;br&gt;% chance of rain" style="rounded=0;whiteSpace=wrap;html=1;align=left;direction=west;" vertex="1" parent="1">
-                    <mxGeometry x="170" y="240" width="80" height="120" as="geometry"/>
+                    <mxGeometry x="170" y="260" width="80" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="11" value="current time + 1hr forecast&lt;br&gt;Current temp&lt;br&gt;weather type&lt;br&gt;% chance of rain" style="rounded=0;whiteSpace=wrap;html=1;align=left;direction=west;" vertex="1" parent="1">
-                    <mxGeometry x="250" y="240" width="80" height="120" as="geometry"/>
+                    <mxGeometry x="250" y="260" width="80" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="12" value="current time +2 hrs forecast&lt;br&gt;Current temp&lt;br&gt;weather type&lt;br&gt;% chance of rain" style="rounded=0;whiteSpace=wrap;html=1;align=left;direction=west;" vertex="1" parent="1">
-                    <mxGeometry x="330" y="240" width="80" height="120" as="geometry"/>
+                    <mxGeometry x="330" y="260" width="80" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="13" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="170" y="390" width="240" height="130" as="geometry"/>
@@ -51,6 +51,9 @@
                 </mxCell>
                 <mxCell id="19" value="Update button" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="255" y="110" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="Hourly forecast" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="170" y="240" width="240" height="20" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
