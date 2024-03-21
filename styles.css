@@ -1,6 +1,7 @@
 body {
   background-color: rgb(91, 91, 243);
   height: 100vmax;
+  text-align: center;
 }
 
 section {
@@ -35,4 +36,11 @@ section {
 #hourlySection div {
   border: 3px solid black;
   padding: 20px;
+}
+#currentSection p {
+    font-size: 2em;
+}
+#actualTime{
+    color: rgb(245, 6, 6);
+
 }

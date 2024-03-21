@@ -4,11 +4,10 @@ Practising API calls and DOM manipulation.
 # Weather App Hackathon
 
 ## Brief
-Welcome to the Weather App Hackathon! Over the past week, you've been diving deeper into JavaScript, learning about the DOM, APIs, and how to make API calls using fetch. It's time to apply what you've learned. Your mission, should you choose to accept it, is to plan, develop, and present a fully functioning weather app by Friday afternoon!
+Welcome to the Weather App Hackathon! Over the past week, you've been diving deeper into JavaScript, learning about the DOM, APIs, and how to make API calls using fetch. It's time to apply what you've learned. Your mission, should you choose to accept it, is to plan, develop, and present a fully functioning weather app!
 
 ## Objectives
 + Build an app leveraging a third-party weather API.
-+ Work in a team using the Driver-Navigator/pair programming approach.
 + Practice planning before jumping into coding.
 + Deliver an MVP within a tight timeframe.
 
