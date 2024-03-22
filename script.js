@@ -26,6 +26,9 @@ function changeUnits() {
 //display hourly weather
 function displayHourlyWeather(weather) {
   const hourlySection = document.getElementById("hourlySection");
+  while (hourlySection.firstChild) {
+    hourlySection.removeChild(hourlySection.firstChild);
+  }
   let j = 0;
   for (let i = 0; i < weather.hourly.time.length; i++) {
     if (weather.hourly.time[i] > weather.current.time) {
@@ -44,8 +47,8 @@ function displayHourlyWeather(weather) {
         .toString()
         .substring(11, 16);
       newHourTemp.textContent = `${weather.hourly.temperature_2m[i]} ${weather.current_units.temperature_2m}`;
-      newHourType.textContent = weather.hourly.weather_code[i];
-      newHourRain.textContent = weather.hourly.precipitation_probability[i];
+      newHourType.textContent = `Weather code ${weather.hourly.weather_code[i]}`;
+      newHourRain.textContent = `Rain : ${weather.hourly.precipitation_probability[i]}%`;
       j++;
       if (j > 4) {
         return;
@@ -71,6 +74,8 @@ function displayWeather(weather) {
   actualTime.textContent = weather.current.time.toString().substring(11, 16);
   const currentTemp = document.getElementById("currentTemp");
   currentTemp.textContent = `Current Temperature:${weather.current.temperature_2m} ${weather.current_units.temperature_2m}`;
+  const currentType = document.getElementById("currentType");
+  currentType.textContent = `Weather code ${weather.current.weather_code}`
   const maxMinTemp = document.getElementById("currentMaxMin");
   maxMinTemp.textContent = `Max Temp: ${weather.daily.temperature_2m_max[0]} ${weather.current_units.temperature_2m} Min Temp: ${weather.daily.temperature_2m_min[0]} ${weather.current_units.temperature_2m} `;
   const windSpeed = document.getElementById("windSpeed");
