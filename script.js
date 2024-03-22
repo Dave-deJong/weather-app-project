@@ -1,15 +1,30 @@
 console.log("Weather you know");
 // Plan
+let unitsMetric = true;
+let url =
+  "https://api.open-meteo.com/v1/forecast?latitude=51.5085&longitude=-0.1257&current=temperature_2m,weather_code,wind_speed_10m&hourly=temperature_2m,precipitation_probability,weather_code&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,wind_speed_10m_max,wind_direction_10m_dominant";
+
 // function to retrieve and display weather
 async function getAndDisplayWeather() {
   const weather = await retrieveWeather();
   displayWeather(weather);
 }
+function changeUnits() {
+  if (unitsMetric) {
+    url =
+      "https://api.open-meteo.com/v1/forecast?latitude=51.5085&longitude=-0.1257&current=temperature_2m,weather_code,wind_speed_10m&hourly=temperature_2m,precipitation_probability,weather_code&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,wind_speed_10m_max,wind_direction_10m_dominant&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch";
+    getAndDisplayWeather();
+    unitsMetric = false;
+  } else {
+    url =
+      "https://api.open-meteo.com/v1/forecast?latitude=51.5085&longitude=-0.1257&current=temperature_2m,weather_code,wind_speed_10m&hourly=temperature_2m,precipitation_probability,weather_code&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,wind_speed_10m_max,wind_direction_10m_dominant";
+    getAndDisplayWeather();
+    unitsMetric = true;
+  }
+}
 // write a function to fetch the info from an API
 async function retrieveWeather() {
-  const response = await fetch(
-    "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m,weather_code,wind_speed_10m&hourly=temperature_2m,precipitation,cloud_cover&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,wind_speed_10m_max"
-  );
+  const response = await fetch(url);
   if (!response.ok) {
     console.error(`Status: ${response.status}`);
     console.error(`Text: ${await response.text()}`);
@@ -23,9 +38,9 @@ function displayWeather(weather) {
   const actualTime = document.getElementById("actualTime");
   actualTime.textContent = weather.current.time.toString().substring(11, 16);
   const currentTemp = document.getElementById("currentTemp");
-  currentTemp.textContent = `Current Temperature:${weather.current.temperature_2m} °C`;
+  currentTemp.textContent = `Current Temperature:${weather.current.temperature_2m} ${weather.current_units.temperature_2m}`;
   const maxMinTemp = document.getElementById("currentMaxMin");
-  maxMinTemp.textContent = `Max Temp: ${weather.daily.temperature_2m_max[0]} °C Min Temp: ${weather.daily.temperature_2m_min[0]} °C `;
+  maxMinTemp.textContent = `Max Temp: ${weather.daily.temperature_2m_max[0]} ${weather.current_units.temperature_2m} Min Temp: ${weather.daily.temperature_2m_min[0]} ${weather.current_units.temperature_2m} `;
   const sunrise = document.getElementById("sunrise");
   sunrise.textContent = `Sunrise : ${weather.daily.sunrise[0]
     .toString()
@@ -38,4 +53,6 @@ function displayWeather(weather) {
 // place event listeners on the button
 const updateButton = document.getElementById("updateButton");
 updateButton.addEventListener("click", getAndDisplayWeather);
+const unitsButton = document.getElementById("degreeConversion");
+unitsButton.addEventListener("click", changeUnits);
 // write the function for the temp converter.

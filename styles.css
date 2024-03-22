@@ -38,9 +38,12 @@ section {
   padding: 20px;
 }
 #currentSection p {
-    font-size: 2em;
+  font-size: 2em;
 }
-#actualTime{
-    color: rgb(245, 6, 6);
-
+#actualTime {
+  color: rgb(245, 6, 6);
+}
+button:hover {
+  opacity: 0.5;
+  transform: scale(0.7);
 }
