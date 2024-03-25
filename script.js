@@ -1,6 +1,7 @@
 console.log("Weather you know");
 // Plan
 let unitsMetric = true;
+let currentImage = "🌕";
 let url =
   "https://api.open-meteo.com/v1/forecast?latitude=51.5085&longitude=-0.1257&current=temperature_2m,weather_code,wind_speed_10m&hourly=temperature_2m,precipitation_probability,weather_code&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,wind_speed_10m_max,wind_direction_10m_dominant";
 
@@ -47,7 +48,9 @@ function displayHourlyWeather(weather) {
         .toString()
         .substring(11, 16);
       newHourTemp.textContent = `${weather.hourly.temperature_2m[i]} ${weather.current_units.temperature_2m}`;
-      newHourType.textContent = `Weather code ${weather.hourly.weather_code[i]}`;
+      newHourType.textContent = weatherCodeConverter(
+        weather.hourly.weather_code[i]
+      );
       newHourRain.textContent = `Rain : ${weather.hourly.precipitation_probability[i]}%`;
       j++;
       if (j > 4) {
@@ -56,7 +59,36 @@ function displayHourlyWeather(weather) {
     }
   }
 }
-
+const weatherCode = {
+  0: ["Clear Sky", "☀️"],
+  1: ["Mainly Clear", "⛅"],
+  2: ["Partly Cloudy", "⛅"],
+  3: ["Overcast", "☁️"],
+  45: ["Fog", "🌫️"],
+  48: ["Depositing Rime Fog", "🌫️"],
+  51: ["Light Drizzle", "🌧️"],
+  53: ["Moderate Drizzle", "🌧️"],
+  55: ["Dense Drizzle", "🌧️"],
+  56: ["Light Freezing Drizzle", "🌧️"],
+  57: ["Dense Freezing Drizzle", "🌧️"],
+  61: ["Slight Rain", "🌧️"],
+  63: ["Moderate Rain", "🌧️"],
+  65: ["Heavy Rain", "🌧️"],
+  66: ["Light Freezing Rain", "🌧️"],
+  67: [" Heavy	Freezing Rain", "🌧️"],
+  71: ["Slight Snow fall", "🌨️"],
+  73: ["Moderate Snow fall", "🌨️"],
+  75: ["Heavy Snow fall", "🌨️"],
+  77: ["Snow grains", "🌨️"],
+  80: ["Slight Rain showers", "🌧️"],
+  81: ["Moderate Rain Showers", "🌧️"],
+  82: ["Violent Rain showers", "🌧️"],
+  85: ["Slight Snow showers", "🌨️"],
+  86: ["Heavy	Snow showers", "🌨️"],
+  95: ["Thunderstorm", "⛈️"],
+  96: ["Thunderstorm with slight hail", "⛈️"],
+  99: ["Thunderstorm with heavy hail", "⛈️"],
+};
 // write a function to fetch the info from an API
 async function retrieveWeather() {
   const response = await fetch(url);
@@ -68,6 +100,15 @@ async function retrieveWeather() {
   const data = await response.json();
   return data;
 }
+
+//function to convert Weather code to English
+function weatherCodeConverter(weatherValue) {
+  let weatherToConvert = weatherValue;
+  weatherToConvert = weatherToConvert.toString();
+  currentImage = weatherCode[weatherToConvert][1];
+  return weatherCode[weatherToConvert][0];
+}
+
 // function to inject the dom with the weather
 function displayWeather(weather) {
   const actualTime = document.getElementById("actualTime");
@@ -75,7 +116,9 @@ function displayWeather(weather) {
   const currentTemp = document.getElementById("currentTemp");
   currentTemp.textContent = `Current Temperature:${weather.current.temperature_2m} ${weather.current_units.temperature_2m}`;
   const currentType = document.getElementById("currentType");
-  currentType.textContent = `Weather code ${weather.current.weather_code}`
+  currentType.textContent = weatherCodeConverter(weather.current.weather_code);
+  const weatherIcon = document.getElementById("weatherIcon");
+  weatherIcon.textContent = currentImage;
   const maxMinTemp = document.getElementById("currentMaxMin");
   maxMinTemp.textContent = `Max Temp: ${weather.daily.temperature_2m_max[0]} ${weather.current_units.temperature_2m} Min Temp: ${weather.daily.temperature_2m_min[0]} ${weather.current_units.temperature_2m} `;
   const windSpeed = document.getElementById("windSpeed");
@@ -95,4 +138,4 @@ const updateButton = document.getElementById("updateButton");
 updateButton.addEventListener("click", getAndDisplayWeather);
 const unitsButton = document.getElementById("degreeConversion");
 unitsButton.addEventListener("click", changeUnits);
-// write the function for the temp converter.
+document.addEventListener("DOMContentLoaded", getAndDisplayWeather);

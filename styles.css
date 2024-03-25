@@ -14,34 +14,63 @@ section {
   font-size: 3em;
 }
 #buttonSection {
+  display: flex;
   font-size: 2em;
   color: rgb(163, 156, 156);
+}
+#buttonSection p {
+  margin: 20px;
 }
 
 #updateButton {
   background-color: chartreuse;
-  font-size: 1em;
+  font-size: 0.5em;
   border-radius: 100%;
+  margin: 20px;
 }
 #degreeConversion {
   background-color: aqua;
-  font-size: 1em;
+  font-size: 0.5em;
   border-radius: 75%;
+  margin: 20px;
+}
+
+
+#currentWeather {
+  position: relative;
+}
+
+#weatherIcon {
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  font-size: 30em;
+  z-index: -1;
+  margin-top: -20px;
+}
+#currentSection p {
+  position: relative;
+  z-index: 1;
+  font-size: 2em;
+  padding: 20px;
 }
 
 #hourlySection {
+  position: relative;
   font-size: 1.5em;
+  z-index: 0;
 }
 
 #hourlySection div {
   border: 3px solid black;
   padding: 20px;
-}
-#currentSection p {
-  font-size: 2em;
+  margin: 5px;
+  background-color: cornflowerblue;
 }
 #actualTime {
   color: rgb(245, 6, 6);
+  margin: 20px;
 }
 button:hover {
   opacity: 0.5;
