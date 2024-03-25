@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(91, 91, 243);
+  background-color: rgb(162, 162, 248);
   height: 100vmax;
   text-align: center;
 }
@@ -16,7 +16,7 @@ section {
 #buttonSection {
   display: flex;
   font-size: 2em;
-  color: rgb(163, 156, 156);
+  color: rgb(243, 205, 205);
 }
 #buttonSection p {
   margin: 20px;
@@ -35,7 +35,6 @@ section {
   margin: 20px;
 }
 
-
 #currentWeather {
   position: relative;
 }
@@ -43,11 +42,12 @@ section {
 #weatherIcon {
   position: absolute;
   top: 50%;
-  left:50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   font-size: 30em;
   z-index: -1;
   margin-top: -20px;
+  opacity: .8;
 }
 #currentSection p {
   position: relative;
@@ -69,10 +69,13 @@ section {
   background-color: cornflowerblue;
 }
 #actualTime {
-  color: rgb(245, 6, 6);
+  color: rgb(255, 4, 4);
   margin: 20px;
 }
 button:hover {
   opacity: 0.5;
   transform: scale(0.7);
+}
+#detailsSection {
+  font-size: 2em;
 }

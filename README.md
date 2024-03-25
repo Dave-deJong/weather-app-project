@@ -24,13 +24,19 @@ Welcome to the Weather App Hackathon! Over the past week, you've been diving dee
 + External API: Utilise a public API for real-time weather data.
 
 ## Milestones
-1. Planning and Initial Setup - Tip: Take time to thoroughly explore the API documentation. Understand what the API can do and what its limitations are. Use tools like ThunderClient or Postman to test API calls and explore what data gets returned.
-2. Fetch and output today's weather data for a fixed location (e.g. London) to the console.
-3. Create a basic UI and display the weather data.
-4. Stretch Goals, Testing & Debugging.
+1. Planning and Initial Setup - Tip: Take time to thoroughly explore the API documentation. Understand what the API can do and what its limitations are. Use tools like ThunderClient or Postman to test API calls and explore what data gets returned.✅
+2. Fetch and output today's weather data for a fixed location (e.g. London) to the console.✅
+3. Create a basic UI and display the weather data.✅
+4. Stretch Goals, Testing & Debugging.❌
 
 ### Stretch Goals
-+ Add visual elements like weather icons or images.
-+ Add unit conversion (e.g. Celsius to Fahrenheit).
-+ Include a weekly weather forecast.
-+ Add a feature allowing the user to input a location.
++ Add visual elements like weather icons or images. ✅
++ Add unit conversion (e.g. Celsius to Fahrenheit).✅
++ Include a weekly weather forecast.❌
++ Add a feature allowing the user to input a location.❌
+
+#### Things still to do
++ Could added wind direction.
++ Could make it so that hourly forecast displays more than 4 hours ahead
++ Could add more/different metrics.
++ Needs better styling.
