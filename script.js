@@ -1,28 +1,22 @@
 console.log("Weather you know");
 // Plan
-let unitsMetric = true;
+let unitsImperial = false;
 let currentImage = "🌕";
-let url =
-  "https://api.open-meteo.com/v1/forecast?latitude=51.5085&longitude=-0.1257&current=temperature_2m,weather_code,wind_speed_10m&hourly=temperature_2m,precipitation_probability,weather_code&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,wind_speed_10m_max,wind_direction_10m_dominant";
 
+//
+async function fetchAndDisplayWeather(useImperial) {
+  const weather = await retrieveWeather(useImperial);
+  displayWeather(weather);
+  console.log(weather);
+}
 // function to retrieve and display weather
 async function getAndDisplayWeather() {
-  const weather = await retrieveWeather();
-  displayWeather(weather);
+  fetchAndDisplayWeather(unitsImperial);
 }
 // function to change the units
 function changeUnits() {
-  if (unitsMetric) {
-    url =
-      "https://api.open-meteo.com/v1/forecast?latitude=51.5085&longitude=-0.1257&current=temperature_2m,weather_code,wind_speed_10m&hourly=temperature_2m,precipitation_probability,weather_code&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,wind_speed_10m_max,wind_direction_10m_dominant&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch";
-    getAndDisplayWeather();
-    unitsMetric = false;
-  } else {
-    url =
-      "https://api.open-meteo.com/v1/forecast?latitude=51.5085&longitude=-0.1257&current=temperature_2m,weather_code,wind_speed_10m&hourly=temperature_2m,precipitation_probability,weather_code&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,wind_speed_10m_max,wind_direction_10m_dominant";
-    getAndDisplayWeather();
-    unitsMetric = true;
-  }
+  unitsImperial = !unitsImperial;
+  fetchAndDisplayWeather(unitsImperial);
 }
 //display hourly weather
 function displayHourlyWeather(weather) {
@@ -44,9 +38,7 @@ function displayHourlyWeather(weather) {
       newHourly.appendChild(newHourTemp);
       newHourly.appendChild(newHourType);
       newHourly.appendChild(newHourRain);
-      newHourTime.textContent = weather.hourly.time[i]
-        .toString()
-        .substring(11, 16);
+      newHourTime.textContent = getTime(weather.hourly.time[i]);
       newHourTemp.textContent = `${weather.hourly.temperature_2m[i]} ${weather.current_units.temperature_2m}`;
       newHourType.textContent = weatherCodeConverter(
         weather.hourly.weather_code[i]
@@ -90,7 +82,17 @@ const weatherCode = {
   99: ["Thunderstorm with heavy hail", "⛈️"],
 };
 // write a function to fetch the info from an API
-async function retrieveWeather() {
+async function retrieveWeather(isImperial) {
+  console.log(`Entering retrieve weather: isImperial = "${isImperial}".`);
+  let baseUrl =
+    "https://api.open-meteo.com/v1/forecast?latitude=51.5085&longitude=-0.1257&current=temperature_2m,weather_code,wind_speed_10m&hourly=temperature_2m,precipitation_probability,weather_code&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,wind_speed_10m_max,wind_direction_10m_dominant&timezone=Europe%2FLondon";
+
+  let imperialSuffix =
+    "&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch";
+  let url = baseUrl;
+  if (isImperial) {
+    url = baseUrl + imperialSuffix;
+  }
   const response = await fetch(url);
   if (!response.ok) {
     console.error(`Status: ${response.status}`);
@@ -112,7 +114,7 @@ function weatherCodeConverter(weatherValue) {
 // function to inject the dom with the weather
 function displayWeather(weather) {
   const actualTime = document.getElementById("actualTime");
-  actualTime.textContent = weather.current.time.toString().substring(11, 16);
+  actualTime.textContent = getTime(weather.current.time);
   const currentTemp = document.getElementById("currentTemp");
   currentTemp.textContent = `Current Temperature:${weather.current.temperature_2m} ${weather.current_units.temperature_2m}`;
   const currentType = document.getElementById("currentType");
@@ -124,13 +126,9 @@ function displayWeather(weather) {
   const windSpeed = document.getElementById("windSpeed");
   windSpeed.textContent = `Wind speed : ${weather.current.wind_speed_10m} ${weather.current_units.wind_speed_10m}`;
   const sunrise = document.getElementById("sunrise");
-  sunrise.textContent = `Sunrise : ${weather.daily.sunrise[0]
-    .toString()
-    .substring(11, 16)}`;
+  sunrise.textContent = `Sunrise : ${getTime(weather.daily.sunrise[0])}`;
   const sunset = document.getElementById("sunset");
-  sunset.textContent = `Sunset : ${weather.daily.sunset[0]
-    .toString()
-    .substring(11, 16)}`;
+  sunset.textContent = `Sunset : ${getTime(weather.daily.sunset[0])}`;
   displayHourlyWeather(weather);
 }
 // place event listeners on the button
@@ -139,3 +137,8 @@ updateButton.addEventListener("click", getAndDisplayWeather);
 const unitsButton = document.getElementById("degreeConversion");
 unitsButton.addEventListener("click", changeUnits);
 document.addEventListener("DOMContentLoaded", getAndDisplayWeather);
+
+// function that takes in the date time and returns the time, the string has the time between the 11th and 16th characters. 
+function getTime(dateTimeString) {
+  return dateTimeString.substring(11, 16);
+}
